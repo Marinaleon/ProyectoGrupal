@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{cliente}}</title>
+    {% load static %}
+    <!-- Bootstrap -->
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="">{{menu}}</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{cliente}}</li>
+            </ol>
+        </nav>
+
+    </div>
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-3">
+                <div class="list-group">
+                    <a href="" class="list-group-item list-group-item-action active">
+                      {{menu}}
+                    </a>
+                    <a href="/venta" class="list-group-item list-group-item-action">{{venta}}</a>
+                    <a href="/producto" class="list-group-item list-group-item-action">{{producto}}</a>
+                    <a href="/cliente" class="list-group-item list-group-item-action">{{cliente}}</a>
+                    <a href="/admin" class="list-group-item list-group-item-action ">{{administrar}}</a>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="card-header">
+                    <div class="d-xxs-flex justify-content-between align-items-center">
+                        <div class="card-heading"></div>
+                        <div class=" btn-group  ">
+                            <a href="{% url 'crearCliente'%}" class="btn btn-sm btn-round btn-primary ">crear Cliente</a>
+                        </div>
+                    </div>
+                </div>
+                <table class="table  mt-2">
+                    <thead>
+                        <tr>
+                            <th scope="col">id</th>
+                            <th scope="col">Ruc</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Dirección</th>
+                            <th scope="col">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for cliente in listarCliente %}
+                        <tr>
+                            <td>{{ cliente.id }}</td>
+                            <td>{{ cliente.ruc }}</td>
+                            <td>{{ cliente.nombre }}</td>
+                            <td>{{ cliente.direccion }}</td>
+
+                            <td>
+                                <ul>
+
+                                    <l1><a class="btn btn-primary btn-sm" href="{% url 'editarCliente' cliente.id %}">Editar</a></l1>
+                                    <l1><a class="btn btn-danger btn-sm" href="{% url 'eliminarCliente' cliente.id %}">Eliminar</a></l1>
+
+                                </ul>
+
+                            </td>
+
+                        </tr>
+                        {% endfor %}
+
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{menu}}</title>
+    {% load static %}
+    <!-- Bootstrap -->
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li href="" class="breadcrumb-item active" aria-current="page">{{menu}}</li>
+            </ol>
+        </nav>
+
+    </div>
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-3">
+                <div class="list-group">
+                    <a href="" class="list-group-item list-group-item-action active">
+                      {{menu}}
+                    </a>
+                    <a href="/venta" class="list-group-item list-group-item-action">{{venta}}</a>
+                    <a href="/producto" class="list-group-item list-group-item-action">{{producto}}</a>
+                    <a href="/cliente" class="list-group-item list-group-item-action">{{cliente}}</a>
+                    <a href="/admin" class="list-group-item list-group-item-action ">{{administrar}}</a>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="jumbotron">
+                    <h1 class="display-4">Ingeniería en Sistemas computacionales</h1>
+                    <p class="lead">Proyecto del primer parcial</p>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>
